@@ -14,13 +14,8 @@
     "custom/language",
 	],
 	"modules-center": [
-  "clock"
+    "clock"
 	],
-	"custom/weather": {
-    "return-type": "json",
-    "exec": "$HOME/.config/waybar/run.sh",
-    "escape": true
-  },
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"format-active": " {icon} ",
@@ -64,12 +59,4 @@
 			"default": ["<span color=\"#ABE9B3\">VOL</span>", "<span color=\"#ABE9B3\">VOL</span>", "<span color=\"#abe9b3\">VOL</span>"]
 		}
 	},
-  "custom/spotify": {
-    "exec": "$HOME/.local/bin/spotify.sh",
-    "format": "{}",
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous",
-    "interval": 2
-  }
 }
