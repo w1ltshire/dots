@@ -1,11 +1,13 @@
+@import "/home/corruptmemory/.cache/hellwal/waybar-colors.css";
 * {
   border: none;
   font-family: "CozetteVector";
   font-size: 13px;
+  min-height: 0;
 }
 
 window#waybar {
-  background: #0d0a06;
+  background: #08080a;
 }
 
 #window {
@@ -17,26 +19,28 @@ window#waybar {
 }
 
 #workspaces {
-  margin-left: 20px;
+  margin-left: 10px;
   font-size: 4px;
   transition: none;
 }
 
 #workspaces button.active {
+  min-width: 10px;
   border-radius: 0px;
-  border-bottom: 2px solid #d8a65c;
-  background-color: #241b0f;
+  border-bottom: 2px solid #343845;
+  background-color: #191b21;
   color: #E0E0E0;
 }
 
 #workspaces button {
+  min-width: 10px;
   background-color: #0d0a06;
   border-bottom: 2px solid transparent;
 }
 
 #pulseaudio {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
   transition: none;
   color: #E0E0E0;
   padding-bottom: 0px;
@@ -50,15 +54,15 @@ window#waybar {
 #memory,
 #cpu,
 #clock {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
   transition: none;
   color: #E0E0E0;
 }
 
 #custom-language {
-  padding-left: 10px;
-  margin-right: 20px;
+  padding-left: 5px;
+  margin-right: 10px;
   padding-right: 8px;
   transition: none;
   color: #E0E0E0;

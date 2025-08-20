@@ -1,21 +1,30 @@
 {
 	"layer": "top",
 	"position": "top",
-	"height": 38,
+	"height": 20,
 	"spacing": 5,
 	"modules-left": [
 		"hyprland/workspaces"
 	],
 	"modules-right": [
 		"cpu",
+    "custom/separator",
 		"memory",
+    "custom/separator",
 		"temperature",
+    "custom/separator",
 		"pulseaudio",
+    "custom/separator",
     "custom/language",
 	],
 	"modules-center": [
-    "clock"
+  "clock",
 	],
+	"custom/weather": {
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/run.sh",
+    "escape": true
+  },
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"format-active": " {icon} ",
@@ -23,40 +32,49 @@
 	},
   "custom/language": {
     "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.name == \"--varmilo\") | .active_keymap' | cut -c 1-3 | tr 'A-Z' 'a-z' | awk '{ print toupper($0) }'",
-    "format": "<span color=\"#8fb8f2\">LNG</span>  {text}",
+    "format": "<span color=\"#617288\">lng</span>  {text}",
     "interval": 1
   },
+  "custom/separator": {
+    "format": "<span color=\"#343845\">/</span>"
+  },
   "clock": {
-		"tooltip-format": "<big>{:%Y %B}</big>",
 		"interval": 60,
 		"format": "<span>-></span> {:%a %d %b %H:%M} <span>&lt;-</span>",
 		"max-length": 25
 	},
 	"cpu": {
 		"interval": "15",
-		"format": "<span color=\"#f28fad\">CPU</span>  {usage}%",
+		"format": "<span color=\"#617288\">cpu</span>  {usage}%",
 		"max-length": 10
 	},
 	"memory": {
 		"interval": 30,
-		"format": "<span color=\"#f8bd92\">MEM</span> {}%",
+		"format": "<span color=\"#617288\">mem</span> {}%",
 		"max-length": 10
 	},
 	"temperature": {
 		"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
 		"critical-threshold": 80,
-		"format-critical": "<span color=\"#f7a6a6\">CRIT</span> {temperatureC} °C",
-		"format": "<span color=\"#FAE3B0\">TMP</span> {temperatureC} °C",
+		"format": "<span color=\"#617288\">tmp</span> {temperatureC} °C",
 		"interval": 2
 	},
 	"pulseaudio": {
 		"tooltip": false,
 		"scroll-step": 5,
 		"format": "{icon}  {volume}%",
-		"format-muted": " MUT ",
+		"format-muted": " mut ",
 		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
-			"default": ["<span color=\"#ABE9B3\">VOL</span>", "<span color=\"#ABE9B3\">VOL</span>", "<span color=\"#abe9b3\">VOL</span>"]
+			"default": ["<span color=\"#617288\">vol</span>", "<span color=\"#81a36c\">vol</span>", "<span color=\"#617288\">vol</span>"]
 		}
 	},
+  "custom/spotify": {
+    "exec": "$HOME/.local/bin/spotify.sh",
+    "format": "{}",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "interval": 2
+  }
 }
